@@ -1,0 +1,2 @@
+web3==6.11.4  # Replace with the latest version
+requests==2.31.0  # Replace with the latest version
