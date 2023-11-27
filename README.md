@@ -1,33 +1,19 @@
-# predictionBot
 
-File Structure:
-PancakeSwapBot/
-│
-├── main.py                 # Entry point of the application.
-├── config.py               # Configuration settings like API keys, contract addresses.
-├── requirements.txt        # List of Python package dependencies.
-├── .gitignore              # Specifies intentionally untracked files to ignore.
-├── README.md               # Project description and instructions.
-│
-├── modules/                # Directory for modularized code.
-│   ├── common/             # Common functionalities across platforms.
-│   │   ├── price.py        # Module for fetching asset prices.
-│   │   └── wallet.py       # Module for wallet interactions.
-│   │
-│   ├── platforms/          # Platform-specific modules.
-│   │   ├── pancakeswap.py  # Module for interacting with PancakeSwap.
-│   │   └── dogebets.py     # Module for interacting with Dogebets.
-│   │
-│   ├── prediction.py       # Module for prediction logic.
-│   └── round_monitor.py    # Module for monitoring betting rounds.
-│
-└── tests/                  # Test scripts for your modules.
-    ├── common/             # Tests for common modules.
-    │   ├── test_price.py
-    │   └── test_wallet.py
-    │
-    ├── platforms/          # Tests for platform-specific modules.
-    │   ├── test_pancakeswap.py
-    │   └── test_dogebets.py
-    │
-    └── test_prediction.py  # Test for the prediction module.
+### Description of Key Components
+
+- `main.py`: The starting point of the application, orchestrating the prediction bot's operations.
+- `config.py`: Contains configuration variables such as API keys and contract addresses.
+- `requirements.txt`: Lists all the necessary Python packages for the project.
+- `.gitignore`: Defines files and directories to be ignored by version control.
+- `README.md`: Offers a detailed explanation of the project, setup instructions, and usage guide.
+
+#### Modules Directory
+
+- `common`: Houses modules for functions that are shared across different platforms, like price fetching and wallet interactions.
+- `platforms`: Contains platform-specific modules, such as those for PancakeSwap and Dogebets.
+- `prediction.py`: Implements the prediction logic of the bot.
+- `round_monitor.py`: Monitors and interacts with the betting rounds on the platforms.
+
+#### Tests Directory
+
+- Includes test scripts for each module, ensuring functionality and reliability.
