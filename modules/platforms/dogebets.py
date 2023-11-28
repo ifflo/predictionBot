@@ -1,16 +1,17 @@
-from web3 import Web3
 from config import DOGEBETS_CONTRACT_ADDRESS
-
-# Assuming you have the ABI for Dogebets' contract
-DOGEBETS_ABI = []
+from utils.abi_utils import load_abi_from_file
 
 
-def get_dogebets_contract(web3_instance):
-    return web3_instance.eth.contract(address=DOGEBETS_CONTRACT_ADDRESS, abi=DOGEBETS_ABI)
+def get_contract(web3_instance):
+    abi = load_abi_from_file('dogebets_abi.json')
+    if abi is None:
+        raise ValueError("Failed to load Dogebets ABI")
+
+    return web3_instance.eth.contract(address=DOGEBETS_CONTRACT_ADDRESS, abi=abi)
 
 
 def get_current_price(web3_instance):
-    contract = get_dogebets_contract(web3_instance)
+    contract = get_contract(web3_instance)
     # Implement the specific interaction with Dogebets contract here
     pass
 

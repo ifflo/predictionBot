@@ -1,16 +1,17 @@
 from web3 import Web3
 from config import PANCAKESWAP_CONTRACT_ADDRESS
-
-# Assuming you have the ABI for PancakeSwap's contract
-PANCAKESWAP_ABI = []
+from utils.abi_utils import load_abi_from_file
 
 
-def get_pancakeswap_contract(web3_instance):
-    return web3_instance.eth.contract(address=PANCAKESWAP_CONTRACT_ADDRESS, abi=PANCAKESWAP_ABI)
+def get_contract(web3_instance):
+    abi = load_abi_from_file('pancakeswap_abi.json')
+    if abi is None:
+        raise ValueError("Failed to load PancakeSwap ABI")
+    return web3_instance.eth.contract(address=PANCAKESWAP_CONTRACT_ADDRESS, abi=abi)
 
 
 def get_current_price(web3_instance):
-    contract = get_pancakeswap_contract(web3_instance)
+    contract = get_contract(web3_instance)
     # Add logic to interact with the contract and fetch the current price
     # This could involve calling a function from the contract
     pass
