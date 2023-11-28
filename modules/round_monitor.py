@@ -5,17 +5,21 @@ from utils.log_utils import setup_logger
 logger = setup_logger('round_monitor_logger', 'round_monitor.log')
 
 
-def get_round_info(contract):
+def get_round_info(contract, round_info_function_name):
     """
-    Fetches the current round information from the contract.
+    Fetches round information from a given smart contract.
+
+    :param contract: The smart contract instance.
+    :param round_info_function_name: The name of the function in the contract to fetch round info.
+    :return: Round information or None if an error occurs.
     """
-    logger.info("Fetching current round information...")
-    # Implement the logic to interact with the contract and fetch the round info.
-    # This is platform-specific and depends on the contract's methods.
-    # Example:
-    # round_info = contract.functions.getCurrentRoundInfo().call()
-    # return round_info
-    pass
+    try:
+        round_info_func = getattr(contract.functions, round_info_function_name)
+        round_info = round_info_func().call()
+        return round_info
+    except Exception as e:
+        print(f"Error fetching round info: {e}")
+        return None
 
 
 def is_round_active(round_info):

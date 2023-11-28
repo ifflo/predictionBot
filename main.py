@@ -2,6 +2,7 @@ from web3 import Web3
 from config import PLATFORM, BSC_HTTP
 from modules.common import price, wallet
 from modules.platforms import pancakeswap, dogebets
+import time
 from modules.prediction import make_prediction
 from modules.round_monitor import get_round_info, is_round_active, wait_for_next_round
 from utils.log_utils import setup_logger
@@ -28,19 +29,20 @@ def main():
 
     # Main loop
     while True:
-        contract = platform_module.get_contract(web3_instance)
+        try:
+            # Fetch round information using the selected platform module
+            round_info = platform_module.get_round_info(web3_instance)
+            print(f"{PLATFORM} Round Info:", round_info)
 
-        round_info = get_round_info(contract)
-        if is_round_active(round_info):
-            current_price = platform_module.get_current_price(web3_instance)
-            prediction = make_prediction(current_price)
-            # Implement the logic for placing a bet based on the prediction
-            pass
-        else:
-            wait_for_next_round(round_info)
+            # Add any additional logic you want to perform based on the round info
 
-        # Additional logic can be added here
-        # ...
+            time.sleep(60)  # Wait for 60 seconds before checking again
+        except KeyboardInterrupt:
+            print("Exiting...")
+            break
+        except Exception as e:
+            print(f"Error occurred: {e}")
+            time.sleep(60)  # Wait before retrying in case of an error
 
 
 if __name__ == "__main__":
