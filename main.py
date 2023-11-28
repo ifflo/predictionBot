@@ -4,6 +4,7 @@ from modules.common import price, wallet
 from modules.platforms import pancakeswap, dogebets
 from modules.prediction import make_prediction
 from modules.round_monitor import get_round_info, is_round_active, wait_for_next_round
+from utils.log_utils import setup_logger
 
 
 def main():

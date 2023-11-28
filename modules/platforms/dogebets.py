@@ -1,5 +1,8 @@
 from config import DOGEBETS_CONTRACT_ADDRESS
 from utils.abi_utils import load_abi_from_file
+from utils.log_utils import setup_logger
+
+logger = setup_logger('dogebets_logger', 'dogebets.log')
 
 
 def get_contract(web3_instance):
