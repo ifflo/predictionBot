@@ -25,8 +25,8 @@
 - [x] Set up a virtual environment for the project (optional but recommended).
 
 ## Core Functionalities
-- [ ] **modules/common/price.py**: Implement logic to fetch current asset prices.
-- [ ] **modules/common/wallet.py**: Add functions for wallet interactions.
+- [x] **modules/common/price.py**: Implement logic to fetch current asset prices.
+- [x] **modules/common/wallet.py**: Add functions for wallet interactions.
 
 ## Platform-Specific Modules
 - [ ] **modules/platforms/pancakeswap.py**:
