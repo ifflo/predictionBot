@@ -17,3 +17,49 @@
 #### Tests Directory
 
 - Includes test scripts for each module, ensuring functionality and reliability.
+
+# To-Do List for PancakeSwap and Dogebets Prediction Bot
+
+## General Setup and Configuration
+- [ ] Verify and update `requirements.txt` with all necessary dependencies.
+- [ ] Set up a virtual environment for the project (optional but recommended).
+
+## Core Functionalities
+- [ ] **modules/common/price.py**: Implement logic to fetch current asset prices.
+- [ ] **modules/common/wallet.py**: Add functions for wallet interactions.
+
+## Platform-Specific Modules
+- [ ] **modules/platforms/pancakeswap.py**:
+    - [ ] Load PancakeSwap contract ABI.
+    - [ ] Develop functions for interacting with PancakeSwap.
+- [ ] **modules/platforms/dogebets.py**:
+    - [ ] Load Dogebets contract ABI.
+    - [ ] Implement functions specific to Dogebets.
+
+## Prediction and Monitoring
+- [ ] **modules/prediction.py**: Develop the prediction algorithm or logic.
+- [ ] **modules/round_monitor.py**: Finalize logic to monitor betting rounds.
+
+## Utilities and Logging
+- [ ] **utils/abi_utils.py**: Ensure ABI files are loading correctly.
+- [ ] **utils/log_util.py**: Customize log formatting and levels.
+
+## Main Application Script
+- [ ] **main.py**: Integrate all modules to orchestrate the bot's operation.
+- [ ] Implement error handling and recovery mechanisms in main script.
+
+## Testing and Validation
+- [ ] Write unit tests for individual modules.
+- [ ] Conduct integration testing for overall functionality.
+
+## Documentation and Maintenance
+- [ ] Complete and update `README.md` with detailed project information.
+- [ ] Document functions and modules with appropriate comments.
+
+## Additional Enhancements
+- [ ] Explore and implement additional features or improvements.
+- [ ] Consider adding a user interface (CLI/GUI) for easier interaction (optional).
+
+## Deployment and Monitoring
+- [ ] Set up a deployment process for server or cloud environments.
+- [ ] Implement monitoring tools to track performance in production.
