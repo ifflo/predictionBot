@@ -21,8 +21,8 @@
 # To-Do List for PancakeSwap and Dogebets Prediction Bot
 
 ## General Setup and Configuration
-- [ ] Verify and update `requirements.txt` with all necessary dependencies.
-- [ ] Set up a virtual environment for the project (optional but recommended).
+- [x] Verify and update `requirements.txt` with all necessary dependencies.
+- [x] Set up a virtual environment for the project (optional but recommended).
 
 ## Core Functionalities
 - [ ] **modules/common/price.py**: Implement logic to fetch current asset prices.
