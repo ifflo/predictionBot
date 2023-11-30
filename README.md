@@ -30,10 +30,10 @@
 
 ## Platform-Specific Modules
 - [ ] **modules/platforms/pancakeswap.py**:
-    - [ ] Load PancakeSwap contract ABI.
+    - [x] Load PancakeSwap contract ABI.
     - [ ] Develop functions for interacting with PancakeSwap.
 - [ ] **modules/platforms/dogebets.py**:
-    - [ ] Load Dogebets contract ABI.
+    - [x] Load Dogebets contract ABI.
     - [ ] Implement functions specific to Dogebets.
 
 ## Prediction and Monitoring

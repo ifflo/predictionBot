@@ -1,6 +1,8 @@
 # common/prediction_platform.py
 from utils.abi_utils import load_abi_from_file
-from web3 import Web3
+from utils.log_utils import setup_logger
+
+logger = setup_logger('round_monitor_logger', 'round_monitor.log')
 
 
 class PredictionPlatform:
@@ -55,6 +57,21 @@ class PredictionPlatform:
         """
         return self.contract.functions.currentEpoch().call()
 
-    # ... Other shared functions ...
+    def get_round_info(self, round_info_function_name):
+        try:
+            round_info_func = getattr(self.contract.functions, round_info_function_name)
+            round_info = round_info_func().call()
+            return round_info
+        except Exception as e:
+            logger.error(f"Error fetching round info: {e}")
+            return None
+
+    def is_round_active(self, round_info):
+        # Implement the logic based on round_info structure
+        pass
+
+    def wait_for_next_round(self, round_info):
+        # Implement the logic to wait for the next round
+        pass
 
 # Add more common functionalities as needed
