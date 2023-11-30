@@ -1,65 +1,85 @@
+# Prediction Bot Project
 
-### Description of Key Components
+## Overview
+This project involves developing a Python-based application that interacts with prediction market platforms like PancakeSwap and Dogebets. It includes functionality for monitoring betting rounds (epochs), placing bets, and implementing prediction strategies. The application leverages smart contract interaction for real-time data handling and backtesting strategies.
 
-- `main.py`: The starting point of the application, orchestrating the prediction bot's operations.
-- `config.py`: Contains configuration variables such as API keys and contract addresses.
-- `requirements.txt`: Lists all the necessary Python packages for the project.
-- `.gitignore`: Defines files and directories to be ignored by version control.
-- `README.md`: Offers a detailed explanation of the project, setup instructions, and usage guide.
+## Features
+- Interaction with PancakeSwap and Dogebets smart contracts.
+- Dynamic handling of prediction rounds (epochs).
+- Functionality for placing bets and claiming rewards.
+- Backtesting framework for prediction strategies.
+- Configurable to switch between different platforms.
+- Enhanced logging and error handling.
 
-#### Modules Directory
+## Project File Structure
+Based on what's actually being used...
+````
+prediction-bot/
+│
+├── common/ 
+│ └── prediction_platform.py
+│
+├── modules/
+│ ├── platforms/
+│ │ ├── pancakeswap.py
+│ │ └── dogebets.py
+│ └── utils/
+│ ├── abi_utils.py
+│ └── log_utils.py
+│
+├── logs/
+│ └── empty
+│
+├── config.py # Configuration settings
+├── main.py # Main application script
+└── README.md # Project documentation
+````
 
-- `common`: Houses modules for functions that are shared across different platforms, like price fetching and wallet interactions.
-- `platforms`: Contains platform-specific modules, such as those for PancakeSwap and Dogebets.
-- `prediction.py`: Implements the prediction logic of the bot.
-- `round_monitor.py`: Monitors and interacts with the betting rounds on the platforms.
 
-#### Tests Directory
+# Project Checklist
 
-- Includes test scripts for each module, ensuring functionality and reliability.
+## Base Functionality
 
-# To-Do List for PancakeSwap and Dogebets Prediction Bot
+### High Priority
+- [ ] **Implement Platform-Specific Functions**
+  - Complete PancakeSwap and Dogebets specific implementations.
+- [ ] **Implement Dynamic Epoch Handling**
+  - Develop methods for real-time data fetching and epoch management.
+- [ ] **Develop Basic Backtesting Framework**
+  - Add functionality for historical data retrieval and strategy testing.
 
-## General Setup and Configuration
-- [x] Verify and update `requirements.txt` with all necessary dependencies.
-- [x] Set up a virtual environment for the project (optional but recommended).
+### Medium Priority
+- [ ] **Enhance Logging and Error Handling**
+  - Implement robust logging and comprehensive error handling.
+- [ ] **Write Unit Tests**
+  - Develop unit tests for core functionalities.
+- [ ] **Optimize Gas Usage and Implement Gas Estimation**
+  - Analyze and optimize gas consumption; provide gas cost estimates.
 
-## Core Functionalities
-- [x] **modules/common/price.py**: Implement logic to fetch current asset prices.
-- [x] **modules/common/wallet.py**: Add functions for wallet interactions.
+### Lower Priority
+- [ ] **User-Friendly Interface (CLI/GUI)**
+  - Begin development of a simple CLI or GUI for user interaction.
+- [ ] **Documentation and Code Comments**
+  - Ensure all code is well-documented and commented.
 
-## Platform-Specific Modules
-- [ ] **modules/platforms/pancakeswap.py**:
-    - [x] Load PancakeSwap contract ABI.
-    - [ ] Develop functions for interacting with PancakeSwap.
-- [ ] **modules/platforms/dogebets.py**:
-    - [x] Load Dogebets contract ABI.
-    - [ ] Implement functions specific to Dogebets.
+## Ongoing Considerations
+- [ ] **Security Review and Testing**
+  - Conduct regular security analyses focusing on common vulnerabilities.
+- [ ] **Prepare for Deployment and Real-world Testing**
+  - Set up the application for deployment on test networks.
 
-## Prediction and Monitoring
-- [ ] **modules/prediction.py**: Develop the prediction algorithm or logic.
-- [ ] **modules/round_monitor.py**: Finalize logic to monitor betting rounds.
 
-## Utilities and Logging
-- [ ] **utils/abi_utils.py**: Ensure ABI files are loading correctly.
-- [ ] **utils/log_util.py**: Customize log formatting and levels.
+## Installation and Setup
+(Provide instructions on how to set up and install the application, including installing dependencies, setting environment variables, etc.)
 
-## Main Application Script
-- [ ] **main.py**: Integrate all modules to orchestrate the bot's operation.
-- [ ] Implement error handling and recovery mechanisms in main script.
+## Usage
+(Include examples and descriptions of how to use the application, including any command-line arguments, configuration options, and examples of output.)
 
-## Testing and Validation
-- [ ] Write unit tests for individual modules.
-- [ ] Conduct integration testing for overall functionality.
+## Contributing
+(If applicable, provide guidelines on how others can contribute to the project.)
 
-## Documentation and Maintenance
-- [ ] Complete and update `README.md` with detailed project information.
-- [ ] Document functions and modules with appropriate comments.
+## License
+(Include details about the project's license, if applicable.)
 
-## Additional Enhancements
-- [ ] Explore and implement additional features or improvements.
-- [ ] Consider adding a user interface (CLI/GUI) for easier interaction (optional).
-
-## Deployment and Monitoring
-- [ ] Set up a deployment process for server or cloud environments.
-- [ ] Implement monitoring tools to track performance in production.
+## Contact
+(Your contact information or instructions on how to get support.)
