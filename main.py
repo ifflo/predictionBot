@@ -1,42 +1,41 @@
-from web3 import Web3
-from config import PLATFORM, BSC_HTTP
-from modules.common import price, wallet
-from modules.platforms import pancakeswap, dogebets
+# main.py
 import time
-from modules.prediction import make_prediction
-from modules.round_monitor import get_round_info, is_round_active, wait_for_next_round
-from utils.log_utils import setup_logger
+from web3 import Web3
+from config import (WEB3_PROVIDER_URL, PANCAKESWAP_PREDICTION_BNB_ADDRESS,
+                    PANCAKESWAP_PREDICTION_CAKE_ADDRESS, PANCAKESWAP_PREDICTION_CHOICE,
+                    DOGEBETS_ADDRESS)
+from modules.platforms.pancakeswap import PancakeSwap
+from modules.platforms.dogebets import Dogebets
 
 
 def main():
-    # Create a Web3 instance
-    web3_instance = Web3(Web3.HTTPProvider(BSC_HTTP))
+    web3_instance = Web3(Web3.HTTPProvider(WEB3_PROVIDER_URL))
 
-    # Check if the connection is successful
-    if not web3_instance.is_connected():
-        print("Failed to connect to Binance Smart Chain")
-        return
+    # Select the appropriate PancakeSwap contract address based on the choice in config.py
+    pancakeswap_address = (PANCAKESWAP_PREDICTION_BNB_ADDRESS if PANCAKESWAP_PREDICTION_CHOICE == 'BNB'
+                           else PANCAKESWAP_PREDICTION_CAKE_ADDRESS)
 
-    # Select the platform module based on configuration
-    platform_module = None
-    if PLATFORM == 'PancakeSwap':
-        platform_module = pancakeswap
-    elif PLATFORM == 'Dogebets':
-        platform_module = dogebets
-    else:
-        print("Unsupported platform")
-        return
+    # PancakeSwap instance for the chosen contract
+    pancakeswap = PancakeSwap(web3_instance, pancakeswap_address, 'pancakeswap_prediction_abi.json')
 
-    # Main loop
+    # Dogebets instance
+    dogebets = Dogebets(web3_instance, DOGEBETS_ADDRESS, 'dogebets_abi.json')
+
     while True:
         try:
-            # Fetch round information using the selected platform module
-            round_info = platform_module.get_round_info(web3_instance)
-            print(f"{PLATFORM} Round Info:", round_info)
+            current_epoch_pancakeswap = pancakeswap.get_current_epoch()
+            current_epoch_dogebets = dogebets.get_current_epoch()
 
-            # Add any additional logic you want to perform based on the round info
+            # Example usage of PancakeSwap and Dogebets classes
+            current_round_pancake = pancakeswap.get_round_details(current_epoch_pancakeswap)
+            print("PancakeSwap Round Details:", current_round_pancake)
 
-            time.sleep(60)  # Wait for 60 seconds before checking again
+            current_round_dogebet = dogebets.get_round_details(current_epoch_dogebets)
+            print("Dogebets Round Details:", current_round_dogebet)
+
+            # Additional logic for betting, claiming, etc. can be added here
+
+            time.sleep(60)  # Wait for 60 seconds before the next check
         except KeyboardInterrupt:
             print("Exiting...")
             break

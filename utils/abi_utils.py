@@ -1,7 +1,5 @@
 import json
 from utils.log_utils import setup_logger
-from web3 import Web3
-from config import PANCAKESWAP_CONTRACT_ADDRESS, DOGEBETS_CONTRACT_ADDRESS
 
 
 def load_abi_from_file(file_name, abis_dir='abis'):

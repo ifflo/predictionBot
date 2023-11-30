@@ -1,24 +1,20 @@
-from web3 import Web3
-from config import PANCAKESWAP_CONTRACT_ADDRESS
-from utils.abi_utils import load_abi_from_file
-from utils.log_utils import setup_logger
-from modules import round_monitor
-
-logger = setup_logger('pancakeswap_logger', 'pancakeswap.log')
-
-# pancakeswap_round_info = get_round_info(pancakeswap_contract, 'getCurrentRoundInfo')
+# pancakeswap.py
+from modules.common.prediction_platform import PredictionPlatform
+from config import (PANCAKESWAP_PREDICTION_BNB_ADDRESS, PANCAKESWAP_PREDICTION_CAKE_ADDRESS,
+                    PANCAKESWAP_PREDICTION_CHOICE)
 
 
-def get_contract(web3_instance):
-    abi = load_abi_from_file('pancakeswap_abi.json')
-    if abi is None:
-        raise ValueError("Failed to load PancakeSwap ABI")
-    return web3_instance.eth.contract(address=PANCAKESWAP_CONTRACT_ADDRESS, abi=abi)
+class PancakeSwap(PredictionPlatform):
+    def __init__(self, web3_instance, contract_address, abi_file):
+        super().__init__(web3_instance, contract_address, abi_file)
 
+    def get_round_details(self, epoch):
+        """
+        Fetches details about a specific round in PancakeSwap prediction.
 
-def get_round_info(web3_instance):
-    contract = get_contract(web3_instance)
-    # Replace 'getCurrentRoundInfo' with the actual function name in the PancakeSwap contract
-    return round_monitor.get_round_info(contract, 'getCurrentRoundInfo')
+        :param epoch: The epoch (round number) to get details for.
+        :return: The round details.
+        """
+        return self.contract.functions.rounds(epoch).call()
 
-# You can add more functions specific to PancakeSwap's operations
+    # Add more PancakeSwap-specific methods if needed

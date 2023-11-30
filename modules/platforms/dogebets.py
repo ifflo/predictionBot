@@ -1,24 +1,18 @@
-from config import DOGEBETS_CONTRACT_ADDRESS
-from utils.abi_utils import load_abi_from_file
-from utils.log_utils import setup_logger
-from modules import round_monitor
-
-logger = setup_logger('dogebets_logger', 'dogebets.log')
-
-# dogebets_round_info = get_round_info(dogebets_contract, 'getLatestRoundInfo')
+# dogebets.py
+from modules.common.prediction_platform import PredictionPlatform
 
 
-def get_contract(web3_instance):
-    abi = load_abi_from_file('dogebets_abi.json')
-    if abi is None:
-        raise ValueError("Failed to load Dogebets ABI")
+class Dogebets(PredictionPlatform):
+    def __init__(self, web3_instance, contract_address, abi_file):
+        super().__init__(web3_instance, contract_address, abi_file)
 
-    return web3_instance.eth.contract(address=DOGEBETS_CONTRACT_ADDRESS, abi=abi)
+    def get_round_details(self, epoch):
+        """
+        Fetches details about a specific round in PancakeSwap prediction.
 
+        :param epoch: The epoch (round number) to get details for.
+        :return: The round details.
+        """
+        return self.contract.functions.Rounds(epoch).call()
 
-def get_round_info(web3_instance):
-    contract = get_contract(web3_instance)
-    # Replace 'getLatestRoundInfo' with the actual function name in the Dogebets contract
-    return round_monitor.get_round_info(contract, 'getLatestRoundInfo')
-
-# Additional Dogebets-specific functionalities can be added as needed
+    # Add more Dogebets-specific methods if needed
