@@ -1,0 +1,101 @@
+commit 03710821b996bbcd9186105ed4133dd4982a5060
+Author: jdcundiff <jd_cundiff@outlook.com>
+Date:   Wed Nov 29 23:04:35 2023 -0600
+
+    updated README.md
+
+commit eefc50e3aafde6411d1cba2d2b831fe4d72d59b6
+Author: jdcundiff <jd_cundiff@outlook.com>
+Date:   Wed Nov 29 22:12:53 2023 -0600
+
+    DRY'd up the code some more. Files are simple and manageable. Both platforms function as expected.
+
+commit eb28a28aab66b0a841aa2ea6bac6d115fcaab2b8
+Author: jdcundiff <jd_cundiff@outlook.com>
+Date:   Wed Nov 29 18:21:11 2023 -0600
+
+    updated round info for both platforms. updated platform files for a DRY approach.
+
+commit c69294bf52765960565a40506983d7c75efdbfef
+Author: jdcundiff <jd_cundiff@outlook.com>
+Date:   Tue Nov 28 17:07:14 2023 -0600
+
+    implemented round info handling
+
+commit f1bc7c601ad4dd724e82804ec6bc9a899a7e856f
+Author: jdcundiff <jd_cundiff@outlook.com>
+Date:   Tue Nov 28 13:44:13 2023 -0600
+
+    finished wallet.py implementation
+
+commit 7600dff95bb4d859a1628338f62ae7a7a56ecb62
+Author: jdcundiff <jd_cundiff@outlook.com>
+Date:   Tue Nov 28 13:28:43 2023 -0600
+
+    created rate_limiter.py with CC and Binance functions
+
+commit 4a4ff2dab7e0f91cc0e43aeb455674dc53a066ed
+Author: jdcundiff <jd_cundiff@outlook.com>
+Date:   Tue Nov 28 12:13:17 2023 -0600
+
+    removed config tracking
+
+commit 7ed3c4adfe5e590f6c511a1f0e6c75bc4f62eba8
+Author: jdcundiff <jd_cundiff@outlook.com>
+Date:   Tue Nov 28 12:08:08 2023 -0600
+
+    updated README.md and gitignore
+
+commit ed0c392070c2b98f966b329c6c133fe6a8af14f8
+Author: jdcundiff <jd_cundiff@outlook.com>
+Date:   Tue Nov 28 11:52:00 2023 -0600
+
+    updated README.md
+
+commit dcb917c69d57ee8b6397a4a0821ca2943751b148
+Author: jdcundiff <jd_cundiff@outlook.com>
+Date:   Tue Nov 28 11:41:28 2023 -0600
+
+    pointed log_utils to correct directory
+
+commit c6cebf3b0cb457c646c025381026caf97f278f33
+Author: jdcundiff <jd_cundiff@outlook.com>
+Date:   Tue Nov 28 11:33:41 2023 -0600
+
+    Added logging function and log directory
+
+commit b8b290d66eed2b41da7088b3a862be40b5c414e7
+Author: jdcundiff <jd_cundiff@outlook.com>
+Date:   Tue Nov 28 06:13:19 2023 -0600
+
+    Fixed ABI loading
+
+commit 6f6287d4e0582e86ac799999f7bd38495008fcee
+Author: jdcundiff <jd_cundiff@outlook.com>
+Date:   Mon Nov 27 15:49:38 2023 -0600
+
+    Added skeleton round_monitor.py file
+
+commit 402c399cc7ef5ffb2d4ad3cb71024ce995428179
+Author: jdcundiff <jd_cundiff@outlook.com>
+Date:   Mon Nov 27 15:46:41 2023 -0600
+
+    Added FS to README.md
+
+commit cefdef843bc68f0a9168c9e1ced4c059344c8b95
+Author: jdcundiff <jd_cundiff@outlook.com>
+Date:   Mon Nov 27 15:46:00 2023 -0600
+
+    Added FS to README.md
+
+commit 02cacf0b108c1febc271259e9aa8c5c7bdbb7633
+Author: jdcundiff <jd_cundiff@outlook.com>
+Date:   Mon Nov 27 15:16:58 2023 -0600
+
+    initial commit skeleton structure
+
+commit 96513d3f4bb794ac40ee8a40b7ba89c6f4d4f7a5
+Author: JD Cundiff <jdc9v@mtmail.mtsu.edu>
+Date:   Mon Nov 27 15:20:25 2023 -0600
+
+    Initial commit
